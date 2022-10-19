@@ -9,4 +9,4 @@
 <!-- in the project's Project Properties dialog box.-->
 <project name="Deep_Learning-based_Agent" default="default" basedir=".">
     <description>Builds, tests, and runs the project Deep_Learning-based Agent.</description>
-    <import fi
+    <import file="nbproject/build-impl.xml"
