@@ -8,4 +8,4 @@
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
 <project name="Deep_Learning-based_Agent" default="default" basedir=".">
-    <description>Builds, tests, and runs the pro
+    <description>Builds, tests, and runs the project Deep_Learning-based Agent
