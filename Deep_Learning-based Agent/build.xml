@@ -49,4 +49,5 @@
 
       -init-macrodef-javac:     defines macro for javac compilation
       -init-macrodef-junit:     defines macro for junit execution
-      -init-macrodef-debug:     defines macro for clas
+      -init-macrodef-debug:     defines macro for class debugging
+      -init-macrodef-jav
