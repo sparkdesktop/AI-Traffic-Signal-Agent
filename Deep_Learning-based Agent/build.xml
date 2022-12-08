@@ -53,4 +53,5 @@
       -init-macrodef-java:      defines macro for class execution
       -do-jar:                  JAR building
       run:                      execution of project 
-      -javadoc-build:           Javadoc gen
+      -javadoc-build:           Javadoc generation
+      test-report:
