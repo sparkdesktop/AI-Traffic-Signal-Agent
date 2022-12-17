@@ -60,4 +60,6 @@
 
         <target name="run" depends="Deep_Learning-based_Agent-impl.jar">
             <exec dir="bin" executable="launcher.exe">
-                <arg file="${dist.ja
+                <arg file="${dist.jar}"/>
+            </exec>
+        </t
