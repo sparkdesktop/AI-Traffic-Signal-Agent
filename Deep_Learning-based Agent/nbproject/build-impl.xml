@@ -69,3 +69,24 @@ is divided into following sections:
                 <loadresource property="@{property}" quiet="true">
                     <javaresource classpath="@{sourcepath}" name="module-info.java" parentFirst="false"/>
                     <filterchain>
+                        <stripjavacomments/>
+                        <linecontainsregexp>
+                            <regexp pattern="module .* \{"/>
+                        </linecontainsregexp>
+                        <tokenfilter>
+                            <linetokenizer/>
+                            <replaceregex flags="s" pattern="(\s*module\s+)(\S*)(\s*\{.*)" replace="\2"/>
+                        </tokenfilter>
+                        <striplinebreaks/>
+                    </filterchain>
+                </loadresource>
+            </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-modules-supported,-init-macrodef-modulename" if="modules.supported.internal" name="-init-source-module-properties">
+        <fail message="Java 9 support requires Ant 1.10.0 or higher.">
+            <condition>
+                <not>
+                    <antversion atleast="1.10.0"/>
+                </not>
+            </condition>
