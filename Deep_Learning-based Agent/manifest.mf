@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-X-COMM
+X-COMMENT: Main-Class will be added autom
