@@ -90,3 +90,37 @@ is divided into following sections:
                     <antversion atleast="1.10.0"/>
                 </not>
             </condition>
+        </fail>
+        <j2seproject3:modulename property="module.name" sourcepath="${src.dir}"/>
+        <condition property="named.module.internal">
+            <and>
+                <isset property="module.name"/>
+                <length length="0" string="${module.name}" when="greater"/>
+            </and>
+        </condition>
+        <condition property="unnamed.module.internal">
+            <not>
+                <isset property="named.module.internal"/>
+            </not>
+        </condition>
+        <property name="javac.modulepath" value=""/>
+        <property name="run.modulepath" value="${javac.modulepath}"/>
+        <property name="module.build.classes.dir" value="${build.classes.dir}"/>
+        <property name="debug.modulepath" value="${run.modulepath}"/>
+        <property name="javac.upgrademodulepath" value=""/>
+        <property name="run.upgrademodulepath" value="${javac.upgrademodulepath}"/>
+        <condition else="" property="javac.systemmodulepath.cmd.line.arg" value="--system '${javac.systemmodulepath}'">
+            <and>
+                <isset property="javac.systemmodulepath"/>
+                <length length="0" string="${javac.systemmodulepath}" when="greater"/>
+            </and>
+        </condition>
+        <property name="dist.jlink.dir" value="${dist.dir}/jlink"/>
+        <property name="dist.jlink.output" value="${dist.jlink.dir}/${application.title}"/>
+        <property name="module.name" value=""/>
+    </target>
+    <target depends="-pre-init,-init-private,-init-user,-init-project,-init-macrodef-property,-init-modules-supported" name="-do-init">
+        <property name="platform.java" value="${java.home}/bin/java"/>
+        <available file="${manifest.file}" property="manifest.available"/>
+        <condition property="splashscreen.available">
+            <and>
