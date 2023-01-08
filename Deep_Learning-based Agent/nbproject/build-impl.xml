@@ -315,3 +315,27 @@ is divided into following sections:
             <attribute default="${build.classes.dir}" name="destdir"/>
             <attribute default="${javac.classpath}" name="classpath"/>
             <attribute default="${javac.modulepath}" name="modulepath"/>
+            <attribute default="${javac.upgrademodulepath}" name="upgrademodulepath"/>
+            <attribute default="${javac.processorpath}" name="processorpath"/>
+            <attribute default="${javac.processormodulepath}" name="processormodulepath"/>
+            <attribute default="${build.generated.sources.dir}/ap-source-output" name="apgeneratedsrcdir"/>
+            <attribute default="${includes}" name="includes"/>
+            <attribute default="${excludes}" name="excludes"/>
+            <attribute default="${javac.debug}" name="debug"/>
+            <attribute default="${empty.dir}" name="sourcepath" unless:set="named.module.internal"/>
+            <attribute default="${src.dir}" if:set="named.module.internal" name="sourcepath"/>
+            <attribute default="${empty.dir}" name="gensrcdir"/>
+            <element name="customize" optional="true"/>
+            <sequential>
+                <condition property="warn.excludes.internal">
+                    <and>
+                        <isset property="named.module.internal"/>
+                        <length length="0" string="@{excludes}" trim="true" when="greater"/>
+                    </and>
+                </condition>
+                <echo if:set="warn.excludes.internal" level="warning" message="The javac excludes are not supported in the JDK 9 Named Module."/>
+                <property location="${build.dir}/empty" name="empty.dir"/>
+                <mkdir dir="${empty.dir}"/>
+                <mkdir dir="@{apgeneratedsrcdir}"/>
+                <condition property="processormodulepath.set">
+                    <resourcecount count="0" when="greater">
