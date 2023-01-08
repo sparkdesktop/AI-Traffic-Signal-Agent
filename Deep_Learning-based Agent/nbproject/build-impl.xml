@@ -153,3 +153,30 @@ is divided into following sections:
                     <istrue value="${jar.archive.disabled}"/>
                 </not>
                 <istrue value="${not.archive.disabled}"/>
+            </or>
+        </condition>
+        <condition property="do.archive+manifest.available">
+            <and>
+                <isset property="manifest.available"/>
+                <istrue value="${do.archive}"/>
+            </and>
+        </condition>
+        <condition property="do.archive+main.class.available">
+            <and>
+                <isset property="main.class.available"/>
+                <istrue value="${do.archive}"/>
+            </and>
+        </condition>
+        <condition property="do.archive+splashscreen.available">
+            <and>
+                <isset property="splashscreen.available"/>
+                <istrue value="${do.archive}"/>
+            </and>
+        </condition>
+        <condition property="do.archive+profile.available">
+            <and>
+                <isset property="profile.available"/>
+                <istrue value="${do.archive}"/>
+            </and>
+        </condition>
+        <condition property="have.tests">
