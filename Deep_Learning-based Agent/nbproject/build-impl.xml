@@ -496,3 +496,30 @@ is divided into following sections:
                     <isset property="test.method"/>
                 </not>
             </and>
+        </condition>
+        <condition else="false" property="nb.junit.single" value="true">
+            <and>
+                <istrue value="${junit.available}"/>
+                <isset property="test.method"/>
+            </and>
+        </condition>
+    </target>
+    <target name="-init-test-properties">
+        <property name="test.binaryincludes" value="&lt;nothing&gt;"/>
+        <property name="test.binarytestincludes" value=""/>
+        <property name="test.binaryexcludes" value=""/>
+    </target>
+    <target depends="-init-modules-supported" if="modules.supported.internal" name="-init-macrodef-junit-prototype-with-module">
+        <macrodef name="junit-prototype" uri="http://www.netbeans.org/ns/j2se-project/3">
+            <attribute default="${includes}" name="includes"/>
+            <attribute default="${excludes}" name="excludes"/>
+            <element name="customizePrototype" optional="true"/>
+            <sequential>
+                <property name="junit.forkmode" value="perTest"/>
+                <junit dir="${work.dir}" errorproperty="tests.failed" failureproperty="tests.failed" fork="true" forkmode="${junit.forkmode}" showoutput="true" tempdir="${build.dir}">
+                    <syspropertyset>
+                        <propertyref prefix="test-sys-prop."/>
+                        <mapper from="test-sys-prop.*" to="*" type="glob"/>
+                    </syspropertyset>
+                    <classpath>
+                        <path path="${run.test.classpath}"/>
