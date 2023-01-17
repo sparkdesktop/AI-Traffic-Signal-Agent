@@ -523,3 +523,29 @@ is divided into following sections:
                     </syspropertyset>
                     <classpath>
                         <path path="${run.test.classpath}"/>
+                    </classpath>
+                    <modulepath>
+                        <path path="${run.test.modulepath}"/>
+                    </modulepath>
+                    <formatter type="brief" usefile="false"/>
+                    <formatter type="xml"/>
+                    <jvmarg line="${endorsed.classpath.cmd.line.arg}"/>
+                    <jvmarg value="-ea"/>
+                    <jvmarg line="${run.test.jvmargs}"/>
+                    <customizePrototype/>
+                </junit>
+            </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-modules-supported" name="-init-macrodef-junit-prototype-without-module" unless="modules.supported.internal">
+        <macrodef name="junit-prototype" uri="http://www.netbeans.org/ns/j2se-project/3">
+            <attribute default="${includes}" name="includes"/>
+            <attribute default="${excludes}" name="excludes"/>
+            <element name="customizePrototype" optional="true"/>
+            <sequential>
+                <property name="junit.forkmode" value="perTest"/>
+                <junit dir="${work.dir}" errorproperty="tests.failed" failureproperty="tests.failed" fork="true" forkmode="${junit.forkmode}" showoutput="true" tempdir="${build.dir}">
+                    <syspropertyset>
+                        <propertyref prefix="test-sys-prop."/>
+                        <mapper from="test-sys-prop.*" to="*" type="glob"/>
+                    </syspropertyset>
