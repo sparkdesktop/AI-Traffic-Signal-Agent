@@ -549,3 +549,34 @@ is divided into following sections:
                         <propertyref prefix="test-sys-prop."/>
                         <mapper from="test-sys-prop.*" to="*" type="glob"/>
                     </syspropertyset>
+                    <classpath>
+                        <path path="${run.test.classpath}"/>
+                    </classpath>
+                    <formatter type="brief" usefile="false"/>
+                    <formatter type="xml"/>
+                    <jvmarg line="${endorsed.classpath.cmd.line.arg}"/>
+                    <jvmarg value="-ea"/>
+                    <customizePrototype/>
+                </junit>
+            </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-test-properties,-init-macrodef-junit-prototype-with-module,-init-macrodef-junit-prototype-without-module" if="${nb.junit.single}" name="-init-macrodef-junit-single" unless="${nb.junit.batch}">
+        <macrodef name="junit" uri="http://www.netbeans.org/ns/j2se-project/3">
+            <attribute default="${includes}" name="includes"/>
+            <attribute default="${excludes}" name="excludes"/>
+            <attribute default="**" name="testincludes"/>
+            <attribute default="" name="testmethods"/>
+            <element name="customize" optional="true"/>
+            <sequential>
+                <j2seproject3:junit-prototype>
+                    <customizePrototype>
+                        <test methods="@{testmethods}" name="@{testincludes}" todir="${build.test.results.dir}"/>
+                        <customize/>
+                    </customizePrototype>
+                </j2seproject3:junit-prototype>
+            </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-test-properties,-init-macrodef-junit-prototype-with-module,-init-macrodef-junit-prototype-without-module" if="${nb.junit.batch}" name="-init-macrodef-junit-batch" unless="${nb.junit.single}">
+        <macrodef name="junit" uri="http://www.netbeans.org/ns/j2se-project/3">
