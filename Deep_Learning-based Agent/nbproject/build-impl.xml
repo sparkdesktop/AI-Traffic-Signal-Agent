@@ -606,3 +606,26 @@ is divided into following sections:
     <target if="${testng.available}" name="-init-macrodef-testng">
         <macrodef name="testng" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${includes}" name="includes"/>
+            <attribute default="${excludes}" name="excludes"/>
+            <attribute default="**" name="testincludes"/>
+            <attribute default="" name="testmethods"/>
+            <element name="customize" optional="true"/>
+            <sequential>
+                <condition else="" property="testng.methods.arg" value="@{testincludes}.@{testmethods}">
+                    <isset property="test.method"/>
+                </condition>
+                <union id="test.set">
+                    <fileset dir="${test.src.dir}" excludes="@{excludes},**/*.xml,${excludes}" includes="@{includes}">
+                        <filename name="@{testincludes}"/>
+                    </fileset>
+                </union>
+                <taskdef classname="org.testng.TestNGAntTask" classpath="${run.test.classpath}" name="testng"/>
+                <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="Deep_Learning-based_Agent" testname="TestNG tests" workingDir="${work.dir}">
+                    <xmlfileset dir="${build.test.classes.dir}" includes="@{testincludes}"/>
+                    <propertyset>
+                        <propertyref prefix="test-sys-prop."/>
+                        <mapper from="test-sys-prop.*" to="*" type="glob"/>
+                    </propertyset>
+                    <classpath>
+                        <path path="${run.test.classpath}"/>
+                    </classpath>
