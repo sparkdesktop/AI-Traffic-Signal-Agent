@@ -659,3 +659,28 @@ is divided into following sections:
                     <customize/>
                 </j2seproject3:junit>
             </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-macrodef-testng" if="${testng.available}" name="-init-macrodef-testng-impl">
+        <macrodef name="test-impl" uri="http://www.netbeans.org/ns/j2se-project/3">
+            <attribute default="${includes}" name="includes"/>
+            <attribute default="${excludes}" name="excludes"/>
+            <attribute default="**" name="testincludes"/>
+            <attribute default="" name="testmethods"/>
+            <element implicit="true" name="customize" optional="true"/>
+            <sequential>
+                <j2seproject3:testng excludes="@{excludes}" includes="@{includes}" testincludes="@{testincludes}" testmethods="@{testmethods}">
+                    <customize/>
+                </j2seproject3:testng>
+            </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-macrodef-test-impl,-init-macrodef-junit-impl,-init-macrodef-testng-impl" name="-init-macrodef-test">
+        <macrodef name="test" uri="http://www.netbeans.org/ns/j2se-project/3">
+            <attribute default="${includes}" name="includes"/>
+            <attribute default="${excludes}" name="excludes"/>
+            <attribute default="**" name="testincludes"/>
+            <attribute default="" name="testmethods"/>
+            <sequential>
+                <j2seproject3:test-impl excludes="@{excludes}" includes="@{includes}" testincludes="@{testincludes}" testmethods="@{testmethods}">
+                    <customize>
