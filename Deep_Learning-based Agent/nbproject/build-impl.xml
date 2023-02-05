@@ -770,3 +770,31 @@ is divided into following sections:
             <attribute default="${includes}" name="includes"/>
             <attribute default="${excludes}" name="excludes"/>
             <attribute default="**" name="testincludes"/>
+            <attribute default="" name="testmethods"/>
+            <attribute default="${main.class}" name="testClass"/>
+            <attribute default="" name="testMethod"/>
+            <sequential>
+                <j2seproject3:testng-debug-impl testClass="@{testClass}" testMethod="@{testMethod}">
+                    <customize2>
+                        <syspropertyset>
+                            <propertyref prefix="test-sys-prop."/>
+                            <mapper from="test-sys-prop.*" to="*" type="glob"/>
+                        </syspropertyset>
+                    </customize2>
+                </j2seproject3:testng-debug-impl>
+            </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-macrodef-test-debug-junit,-init-macrodef-test-debug-testng" name="-init-macrodef-test-debug"/>
+    <!--
+                pre NB7.2 profiling section; consider it deprecated
+            -->
+    <target depends="-profile-pre-init, init, -profile-post-init, -profile-init-macrodef-profile, -profile-init-check" if="profiler.info.jvmargs.agent" name="profile-init"/>
+    <target if="profiler.info.jvmargs.agent" name="-profile-pre-init">
+        <!-- Empty placeholder for easier customization. -->
+        <!-- You can override this target in the ../build.xml file. -->
+    </target>
+    <target if="profiler.info.jvmargs.agent" name="-profile-post-init">
+        <!-- Empty placeholder for easier customization. -->
+        <!-- You can override this target in the ../build.xml file. -->
+    </target>
