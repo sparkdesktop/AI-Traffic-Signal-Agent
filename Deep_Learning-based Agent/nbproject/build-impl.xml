@@ -981,3 +981,24 @@ is divided into following sections:
                     </syspropertyset>
                     <customize/>
                 </java>
+            </sequential>
+        </macrodef>
+    </target>
+    <target depends="-init-macrodef-java-with-module, -init-macrodef-java-with-unnamed-module, -init-macrodef-java-without-module" name="-init-macrodef-java"/>
+    <target name="-init-macrodef-copylibs">
+        <macrodef name="copylibs" uri="http://www.netbeans.org/ns/j2se-project/3">
+            <attribute default="${manifest.file}" name="manifest"/>
+            <element name="customize" optional="true"/>
+            <sequential>
+                <property location="${build.classes.dir}" name="build.classes.dir.resolved"/>
+                <pathconvert property="run.classpath.without.build.classes.dir">
+                    <path path="${run.classpath}"/>
+                    <map from="${build.classes.dir.resolved}" to=""/>
+                </pathconvert>
+                <pathconvert pathsep=" " property="jar.classpath">
+                    <path path="${run.classpath.without.build.classes.dir}"/>
+                    <chainedmapper>
+                        <flattenmapper/>
+                        <filtermapper>
+                            <replacestring from=" " to="%20"/>
+                        </filtermapper>
