@@ -1104,3 +1104,28 @@ is divided into following sections:
         <copy todir="${build.classes.dir}/META-INF">
             <fileset dir="${meta.inf.dir}" includes="persistence.xml orm.xml"/>
         </copy>
+    </target>
+    <target name="-post-compile">
+        <!-- Empty placeholder for easier customization. -->
+        <!-- You can override this target in the ../build.xml file. -->
+    </target>
+    <target depends="init,deps-jar,-verify-automatic-build,-pre-pre-compile,-pre-compile,-do-compile,-post-compile" description="Compile project." name="compile"/>
+    <target name="-pre-compile-single">
+        <!-- Empty placeholder for easier customization. -->
+        <!-- You can override this target in the ../build.xml file. -->
+    </target>
+    <target depends="init,deps-jar,-pre-pre-compile" name="-do-compile-single">
+        <fail unless="javac.includes">Must select some files in the IDE or set javac.includes</fail>
+        <j2seproject3:force-recompile/>
+        <j2seproject3:javac excludes="" gensrcdir="${build.generated.sources.dir}" includes="${javac.includes}, module-info.java" sourcepath="${src.dir}"/>
+    </target>
+    <target name="-post-compile-single">
+        <!-- Empty placeholder for easier customization. -->
+        <!-- You can override this target in the ../build.xml file. -->
+    </target>
+    <target depends="init,deps-jar,-verify-automatic-build,-pre-pre-compile,-pre-compile-single,-do-compile-single,-post-compile-single" name="compile-single"/>
+    <!--
+                ====================
+                JAR BUILDING SECTION
+                ====================
+            -->
