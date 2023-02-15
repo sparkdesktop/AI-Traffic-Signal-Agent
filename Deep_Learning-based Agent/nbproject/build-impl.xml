@@ -1153,3 +1153,40 @@ is divided into following sections:
         </condition>
     </target>
     <target depends="-check-module-main-class" if="do.module.main.class" name="-set-module-main-class">
+        <taskdef classname="org.netbeans.modules.java.j2seproject.moduletask.ModuleMainClass" classpath="${libs.CopyLibs.classpath}" name="modulemainclass"/>
+        <modulemainclass failonerror="false" mainclass="${main.class}" moduleinfo="${build.classes.dir}/module-info.class"/>
+    </target>
+    <target depends="init" if="do.archive" name="-do-jar-create-manifest" unless="manifest.available">
+        <tempfile deleteonexit="true" destdir="${build.dir}" property="tmp.manifest.file"/>
+        <touch file="${tmp.manifest.file}" verbose="false"/>
+    </target>
+    <target depends="init" if="do.archive+manifest.available" name="-do-jar-copy-manifest">
+        <tempfile deleteonexit="true" destdir="${build.dir}" property="tmp.manifest.file"/>
+        <copy encoding="${manifest.encoding}" file="${manifest.file}" outputencoding="UTF-8" tofile="${tmp.manifest.file}"/>
+    </target>
+    <target depends="init,-do-jar-create-manifest,-do-jar-copy-manifest" if="do.archive+main.class.available" name="-do-jar-set-mainclass">
+        <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+            <attribute name="Main-Class" value="${main.class}"/>
+        </manifest>
+    </target>
+    <target depends="init,-do-jar-create-manifest,-do-jar-copy-manifest" if="do.archive+profile.available" name="-do-jar-set-profile">
+        <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+            <attribute name="Profile" value="${javac.profile}"/>
+        </manifest>
+    </target>
+    <target depends="init,-do-jar-create-manifest,-do-jar-copy-manifest" if="do.archive+splashscreen.available" name="-do-jar-set-splashscreen">
+        <basename file="${application.splash}" property="splashscreen.basename"/>
+        <mkdir dir="${build.classes.dir}/META-INF"/>
+        <copy failonerror="false" file="${application.splash}" todir="${build.classes.dir}/META-INF"/>
+        <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+            <attribute name="SplashScreen-Image" value="META-INF/${splashscreen.basename}"/>
+        </manifest>
+    </target>
+    <target depends="init,compile" name="-check-do-mkdist">
+        <condition property="do.mkdist">
+            <and>
+                <isset property="do.archive"/>
+                <isset property="libs.CopyLibs.classpath"/>
+                <not>
+                    <istrue value="${mkdist.disabled}"/>
+                </not>
