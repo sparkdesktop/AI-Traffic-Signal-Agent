@@ -1190,3 +1190,36 @@ is divided into following sections:
                 <not>
                     <istrue value="${mkdist.disabled}"/>
                 </not>
+                <not>
+                    <available file="${build.classes.dir}/module-info.class"/>
+                </not>
+            </and>
+        </condition>
+    </target>
+    <target depends="init,-init-macrodef-copylibs,compile,-pre-pre-jar,-pre-jar,-do-jar-create-manifest,-do-jar-copy-manifest,-do-jar-set-mainclass,-do-jar-set-profile,-do-jar-set-splashscreen,-check-do-mkdist" if="do.mkdist" name="-do-jar-copylibs">
+        <j2seproject3:copylibs manifest="${tmp.manifest.file}"/>
+        <echo level="info">To run this application from the command line without Ant, try:</echo>
+        <property location="${dist.jar}" name="dist.jar.resolved"/>
+        <echo level="info">java -jar "${dist.jar.resolved}"</echo>
+    </target>
+    <target depends="init,compile,-pre-pre-jar,-pre-jar,-do-jar-create-manifest,-do-jar-copy-manifest,-do-jar-set-mainclass,-do-jar-set-profile,-do-jar-set-splashscreen,-check-do-mkdist" if="do.archive" name="-do-jar-jar" unless="do.mkdist">
+        <j2seproject1:jar manifest="${tmp.manifest.file}"/>
+        <property location="${build.classes.dir}" name="build.classes.dir.resolved"/>
+        <property location="${dist.jar}" name="dist.jar.resolved"/>
+        <condition else="${dist.jar.resolved}" property="jar.usage.message.class.path.replacement" value="">
+            <isset property="named.module.internal"/>
+        </condition>
+        <pathconvert property="run.classpath.with.dist.jar">
+            <path path="${run.classpath}"/>
+            <map from="${build.classes.dir.resolved}" to="${jar.usage.message.class.path.replacement}"/>
+        </pathconvert>
+        <pathconvert property="run.modulepath.with.dist.jar">
+            <path location="${dist.jar.resolved}"/>
+            <path path="${run.modulepath}"/>
+            <map from="${build.classes.dir.resolved}" to="${dist.jar.resolved}"/>
+        </pathconvert>
+        <condition else="${run.modulepath}" property="jar.usage.message.run.modulepath.with.dist.jar" value="${run.modulepath.with.dist.jar}">
+            <isset property="named.module.internal"/>
+        </condition>
+        <condition else="" property="jar.usage.message.module.path" value=" -p ${jar.usage.message.run.modulepath.with.dist.jar}">
+            <and>
