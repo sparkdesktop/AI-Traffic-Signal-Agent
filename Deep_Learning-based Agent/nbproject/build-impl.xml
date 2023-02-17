@@ -1422,3 +1422,34 @@ is divided into following sections:
         </nbprofiledirect>
         <profile classname="sun.applet.AppletViewer">
             <customize>
+                <arg value="${applet.url}"/>
+            </customize>
+        </profile>
+    </target>
+    <target depends="-init-macrodef-junit,profile-init,compile-test-single" if="profiler.info.jvmargs.agent" name="-profile-test-single-pre72">
+        <fail unless="netbeans.home">This target only works when run from inside the NetBeans IDE.</fail>
+        <nbprofiledirect>
+            <classpath>
+                <path path="${run.test.classpath}"/>
+            </classpath>
+        </nbprofiledirect>
+        <j2seproject3:junit excludes="${excludes}" includes="${includes}" testincludes="${profile.class}" testmethods="">
+            <customize>
+                <jvmarg value="-agentlib:jdwp=transport=${debug-transport},address=${jpda.address}"/>
+                <env key="${profiler.info.pathvar}" path="${profiler.info.agentpath}:${profiler.current.path}"/>
+                <jvmarg value="${profiler.info.jvmargs.agent}"/>
+                <jvmarg line="${profiler.info.jvmargs}"/>
+                <classpath>
+                    <path path="${run.test.classpath}"/>
+                </classpath>
+            </customize>
+        </j2seproject3:junit>
+    </target>
+    <!--
+                end of pre NB72 profiling section
+            -->
+    <target if="netbeans.home" name="-profile-check">
+        <condition property="profiler.configured">
+            <or>
+                <contains casesensitive="true" string="${run.jvmargs.ide}" substring="-agentpath:"/>
+                <contains casesensitive="true" string="${run.jvmargs.ide}" substring="-javaagent:"/>
