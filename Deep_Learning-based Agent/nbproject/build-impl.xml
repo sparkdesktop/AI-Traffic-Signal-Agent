@@ -1544,3 +1544,29 @@ is divided into following sections:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
+    <target depends="-init-source-module-properties" if="named.module.internal" name="-init-test-javac-module-properties-with-module">
+        <j2seproject3:modulename property="test.module.name" sourcepath="${test.src.dir}"/>
+        <condition else="${empty.dir}" property="javac.test.sourcepath" value="${test.src.dir}">
+            <and>
+                <isset property="test.module.name"/>
+                <length length="0" string="${test.module.name}" when="greater"/>
+            </and>
+        </condition>
+        <condition else="--patch-module ${module.name}=${test.src.dir} --add-reads ${module.name}=ALL-UNNAMED" property="javac.test.compilerargs" value="--add-reads ${test.module.name}=ALL-UNNAMED">
+            <and>
+                <isset property="test.module.name"/>
+                <length length="0" string="${test.module.name}" when="greater"/>
+            </and>
+        </condition>
+    </target>
+    <target depends="-init-source-module-properties" if="named.module.internal" name="-init-test-run-module-properties">
+        <condition else="${module.name}" property="run.test.addexport.source.module.internal" value="${test.module.name}">
+            <and>
+                <isset property="test.module.name"/>
+                <length length="0" string="${test.module.name}" when="greater"/>
+            </and>
+        </condition>
+        <fileset dir="${build.test.classes.dir}" id="run.test.packages.internal" includes="**/*.class"/>
+        <property location="${build.test.classes.dir}" name="build.test.classes.dir.abs.internal"/>
+        <pathconvert pathsep=" " property="run.test.addexports.internal" refid="run.test.packages.internal">
+            <chainedmapper>
