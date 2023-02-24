@@ -1698,3 +1698,31 @@ is divided into following sections:
                 =========================
             -->
     <target depends="init,compile-single" name="run-applet">
+        <fail unless="applet.url">Must select one file in the IDE or set applet.url</fail>
+        <j2seproject1:java classname="sun.applet.AppletViewer">
+            <customize>
+                <arg value="${applet.url}"/>
+            </customize>
+        </j2seproject1:java>
+    </target>
+    <!--
+                =========================
+                APPLET DEBUGGING  SECTION
+                =========================
+            -->
+    <target depends="init,compile-single" if="netbeans.home" name="-debug-start-debuggee-applet">
+        <fail unless="applet.url">Must select one file in the IDE or set applet.url</fail>
+        <j2seproject3:debug classname="sun.applet.AppletViewer">
+            <customizeDebuggee>
+                <arg value="${applet.url}"/>
+            </customizeDebuggee>
+        </j2seproject3:debug>
+    </target>
+    <target depends="init,compile-single,-debug-start-debugger,-debug-start-debuggee-applet" if="netbeans.home" name="debug-applet"/>
+    <!--
+                ===============
+                CLEANUP SECTION
+                ===============
+            -->
+    <target name="-deps-clean-init" unless="built-clean.properties">
+        <property location="${build.dir}/built-clean.properties" name="built-clean.properties"/>
