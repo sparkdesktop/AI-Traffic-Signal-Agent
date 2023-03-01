@@ -1726,3 +1726,35 @@ is divided into following sections:
             -->
     <target name="-deps-clean-init" unless="built-clean.properties">
         <property location="${build.dir}/built-clean.properties" name="built-clean.properties"/>
+        <delete file="${built-clean.properties}" quiet="true"/>
+    </target>
+    <target if="already.built.clean.${basedir}" name="-warn-already-built-clean">
+        <echo level="warn" message="Cycle detected: Deep_Learning-based Agent was already built"/>
+    </target>
+    <target depends="init,-deps-clean-init" name="deps-clean" unless="no.deps">
+        <mkdir dir="${build.dir}"/>
+        <touch file="${built-clean.properties}" verbose="false"/>
+        <property file="${built-clean.properties}" prefix="already.built.clean."/>
+        <antcall target="-warn-already-built-clean"/>
+        <propertyfile file="${built-clean.properties}">
+            <entry key="${basedir}" value=""/>
+        </propertyfile>
+    </target>
+    <target depends="init" name="-do-clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.jlink.output}"/>
+        <delete dir="${dist.dir}" followsymlinks="false" includeemptydirs="true"/>
+    </target>
+    <target name="-post-clean">
+        <!-- Empty placeholder for easier customization. -->
+        <!-- You can override this target in the ../build.xml file. -->
+    </target>
+    <target depends="init,deps-clean,-do-clean,-post-clean" description="Clean build products." name="clean"/>
+    <target name="-check-call-dep">
+        <property file="${call.built.properties}" prefix="already.built."/>
+        <condition property="should.call.dep">
+            <and>
+                <not>
+                    <isset property="already.built.${call.subproject}"/>
+                </not>
+                <available file="${call.script}"/>
