@@ -6,4 +6,6 @@
             <name>Deep_Learning-based Agent</name>
             <source-roots>
                 <root id="src.dir"/>
-            </source-ro
+            </source-roots>
+            <test-roots>
+   
