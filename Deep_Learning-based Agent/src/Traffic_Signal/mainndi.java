@@ -59,3 +59,34 @@ public class mainndi {
             }
             
             System.out.print(" Salida ");
+            redNeuronal.entradasH(m.getCapaI()[iteracion]);
+            redNeuronal.activacionH();
+            redNeuronal.entradasO();
+            redNeuronal.activacionO();
+            
+            redNeuronal.errorCapaO(m.getApender( ), iteracion);
+            for (int j = 0; j <nodoso; j++) {
+                 System.out.print(""+Math.round(redNeuronal.forward(j))+"  ");
+                
+            }
+            
+            //identificar
+            String TURN = "";
+            
+            
+            for (int j = nodoso-1; j >= 0; j--) {
+                TURN+=""+(int)redNeuronal.forward(j);
+                
+            }
+            if(TURN.equals("00")){
+                TURN =" LEFT";
+                
+            }else if(TURN.equals("11")){
+                 TURN =" RIGHT";
+            }else{
+                 TURN =" INDEFINIDO";
+            }
+            
+            System.out.println(" TURN "+ TURN );
+            noigual=false;
+            
