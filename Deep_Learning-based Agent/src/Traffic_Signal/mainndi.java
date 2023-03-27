@@ -90,3 +90,27 @@ public class mainndi {
             System.out.println(" TURN "+ TURN );
             noigual=false;
             
+            //si los nodos o aprendieron bien 
+            for(int j =0; j< nodoso; j++){
+             if(redNeuronal.forward(j)==m.getApender()[j][iteracion]){
+             }else{
+                 noigual=true;
+             }
+            }
+            
+            if(noigual){
+                i=-1;
+                redNeuronal.pesos_ho();
+                redNeuronal.errorCapaH();
+                redNeuronal.pesosIH();
+                
+            }
+            i++;
+            numeroactualItera++;
+           // System.out.println("**********************  "+i+" ***************** "+numeroactualItera+" ***************");
+            
+        }
+      //  redNeuronal.verPesos_IH();
+      //  redNeuronal.verPesos_HO();
+    }
+}
