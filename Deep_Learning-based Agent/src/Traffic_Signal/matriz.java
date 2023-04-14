@@ -9,4 +9,6 @@ import digitos.*;
 
 /**
  *
- * 
+ * @author celes
+ */
+public class 
