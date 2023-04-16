@@ -12,4 +12,5 @@ import digitos.*;
  * @author celes
  */
 public class matriz {
-      dou
+      double balance=-1;
+    doubl
