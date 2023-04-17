@@ -13,4 +13,4 @@ import digitos.*;
  */
 public class matriz {
       double balance=-1;
-    doubl
+    double capaI[][]={ {0,0,1,0,
