@@ -23,4 +23,5 @@ public class matriz {
                         };
 
     public double[][] getCapaI() {
- 
+        return capaI;
+    
