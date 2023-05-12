@@ -22,4 +22,5 @@ public class matriz {
                              
                         };
 
-    pu
+    public double[][] getCapaI() {
+ 
