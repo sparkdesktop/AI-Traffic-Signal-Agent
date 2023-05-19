@@ -27,4 +27,7 @@ public class matriz {
     }
 
     public double[][] getApender() {
-        return ap
+        return apender;
+    }
+    
+  
