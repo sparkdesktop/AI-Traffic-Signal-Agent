@@ -30,4 +30,4 @@ public class matriz {
         return apender;
     }
     
-  
+     double apender[][]={{0,0,0,
