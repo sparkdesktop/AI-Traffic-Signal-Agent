@@ -32,4 +32,5 @@ public class matriz {
     
      double apender[][]={{0,0,0,1,1,1}, //00 LEFT
                          {0,0,0,1,1,1}//11 RIGHT
-       
+                        };
+}
