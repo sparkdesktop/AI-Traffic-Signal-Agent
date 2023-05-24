@@ -72,3 +72,27 @@ public class trafic_signal {
             }else if(TURN.equals("11")){
                  TURN =" RIGHT";
             }else{
+                 TURN =" INDEFINIDO";
+            }
+            
+            System.out.println(" TURN "+ TURN );
+            noigual=false;
+            
+            //si los nodos o aprendieron bien 
+            for(int j =0; j< nodoso; j++){
+             if(redNeuronal.forward(j)==m.getApender()[j][iteracion]){
+             }else{
+                 noigual=true;
+             }
+            }
+            
+            if(noigual){
+                i=-1;
+                redNeuronal.pesos_ho();
+                redNeuronal.errorCapaH();
+                redNeuronal.pesosIH();
+                
+            }
+            i++;
+            numeroactualItera++;
+           // System.out.println("**********************  "+i+" ***************** "+numeroactualItera+" ***************");
