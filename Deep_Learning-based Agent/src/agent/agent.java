@@ -4,4 +4,5 @@
  * and open the template in the editor.
  */
 package agent;
-import digitos.mainn
+import digitos.mainn;
+import jade.core.Agent;
