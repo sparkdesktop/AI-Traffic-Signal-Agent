@@ -7,4 +7,5 @@ package agent;
 import digitos.mainn;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
-import jade.cor
+import jade.core.behaviours.OneShotBehaviour;
+import jad
