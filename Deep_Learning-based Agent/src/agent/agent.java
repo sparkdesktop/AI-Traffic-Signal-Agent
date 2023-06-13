@@ -8,4 +8,5 @@ import digitos.mainn;
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
-import jade.core.behaviours.Recei
+import jade.core.behaviours.ReceiverBehaviour;
+import jade.core.be
