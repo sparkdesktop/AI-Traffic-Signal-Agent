@@ -10,4 +10,4 @@ import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.OneShotBehaviour;
 import jade.core.behaviours.ReceiverBehaviour;
 import jade.core.behaviours.SimpleBehaviour;
-import ja
+import jade.core.behaviours.TickerBehaviour
