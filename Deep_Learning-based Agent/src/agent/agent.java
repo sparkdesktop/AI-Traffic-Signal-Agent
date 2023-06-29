@@ -17,4 +17,5 @@ import jade.core.behaviours.WakerBehaviour;
  *
  * @author celes
  */
-public class age
+public class agent  extends Agent {
+    gui g
