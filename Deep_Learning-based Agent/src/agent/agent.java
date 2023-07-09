@@ -18,4 +18,5 @@ import jade.core.behaviours.WakerBehaviour;
  * @author celes
  */
 public class agent  extends Agent {
-    gui g
+    gui gui;
+   // mainndi mm=new mai
