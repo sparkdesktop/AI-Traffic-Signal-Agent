@@ -19,4 +19,6 @@ import jade.core.behaviours.WakerBehaviour;
  */
 public class agent  extends Agent {
     gui gui;
-   // mainndi mm=new mai
+   // mainndi mm=new mainndi(2,13,14,26);
+     
+    m
