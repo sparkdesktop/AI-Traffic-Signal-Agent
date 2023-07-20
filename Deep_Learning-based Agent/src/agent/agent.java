@@ -21,4 +21,4 @@ public class agent  extends Agent {
     gui gui;
    // mainndi mm=new mainndi(2,13,14,26);
      
-    m
+    mainn m=new mainn(4,5,6,8);
