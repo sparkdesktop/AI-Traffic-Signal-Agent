@@ -22,3 +22,5 @@ public class agent  extends Agent {
    // mainndi mm=new mainndi(2,13,14,26);
      
     mainn m=new mainn(4,5,6,8);
+    public void setup(){
+   
