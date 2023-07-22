@@ -24,4 +24,5 @@ public class agent  extends Agent {
     mainn m=new mainn(4,5,6,8);
     public void setup(){
         System.out.println("Hola Mundo");
-        gui gui = new gui(th
+        gui gui = new gui(this);
+	gui.showGui(); 
