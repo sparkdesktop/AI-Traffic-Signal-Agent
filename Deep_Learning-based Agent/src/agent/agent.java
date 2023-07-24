@@ -28,4 +28,5 @@ public class agent  extends Agent {
 	gui.showGui(); 
         
     }
-    protec
+    protected void takeDown() {
+       
