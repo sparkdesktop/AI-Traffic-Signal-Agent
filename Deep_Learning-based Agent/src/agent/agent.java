@@ -32,4 +32,4 @@ public class agent  extends Agent {
         gui.dispose();
     }
     public void Digitos( ){
-        addB
+        addBehaviour(new OneShotBehavio
