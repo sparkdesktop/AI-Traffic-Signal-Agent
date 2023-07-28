@@ -31,4 +31,5 @@ public class agent  extends Agent {
     protected void takeDown() {
         gui.dispose();
     }
-    public void
+    public void Digitos( ){
+        addB
