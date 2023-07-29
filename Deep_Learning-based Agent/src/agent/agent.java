@@ -33,4 +33,6 @@ public class agent  extends Agent {
     }
     public void Digitos( ){
         addBehaviour(new OneShotBehaviour() {
-            public
+            public void action() {
+          
+           
