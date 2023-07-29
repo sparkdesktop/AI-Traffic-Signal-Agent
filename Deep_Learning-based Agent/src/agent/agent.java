@@ -35,4 +35,5 @@ public class agent  extends Agent {
         addBehaviour(new OneShotBehaviour() {
             public void action() {
           
-           
+               m.main();
+        
