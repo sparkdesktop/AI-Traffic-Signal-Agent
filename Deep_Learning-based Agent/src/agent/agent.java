@@ -38,4 +38,6 @@ public class agent  extends Agent {
                m.main();
             }
         });
-   
+    }
+    
+    public void signal
