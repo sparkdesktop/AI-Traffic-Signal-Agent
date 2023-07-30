@@ -40,4 +40,6 @@ public class agent  extends Agent {
         });
     }
     
-    public void signal
+    public void signalTrafic(  ){
+         
+        addBehavi
