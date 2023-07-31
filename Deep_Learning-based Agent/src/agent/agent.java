@@ -42,4 +42,4 @@ public class agent  extends Agent {
     
     public void signalTrafic(  ){
          
-        addBehavi
+        addBehaviour(new SimpleBehaviour () {
