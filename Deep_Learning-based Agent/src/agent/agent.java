@@ -43,4 +43,5 @@ public class agent  extends Agent {
     public void signalTrafic(  ){
          
         addBehaviour(new SimpleBehaviour () {
-         boolean finished = 
+         boolean finished = false;
+            public 
