@@ -44,4 +44,6 @@ public class agent  extends Agent {
          
         addBehaviour(new SimpleBehaviour () {
          boolean finished = false;
-            public 
+            public void action() {
+              
+      
