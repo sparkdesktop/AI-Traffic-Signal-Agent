@@ -49,4 +49,6 @@ public class agent  extends Agent {
                   
                
      //           mm.main();
-                fi
+                finished = true;
+
+         
