@@ -55,4 +55,6 @@ public class agent  extends Agent {
 
             @Override
             public boolean done() {
-       
+              return finished;
+            }
+  
