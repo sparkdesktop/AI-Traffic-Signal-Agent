@@ -24,4 +24,5 @@ import javax.swing.JTextField;
  *
  * @author celes
  */
-public class gui e
+public class gui extends JFrame {
+    private ag
