@@ -30,4 +30,4 @@ public class gui extends JFrame {
     private JTextField xValueField2;
     private JTextField traf;
     gui(agent a){
-  
+        super(a.getLocal
