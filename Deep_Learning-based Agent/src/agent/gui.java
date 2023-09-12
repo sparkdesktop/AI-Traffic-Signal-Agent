@@ -27,4 +27,5 @@ import javax.swing.JTextField;
 public class gui extends JFrame {
     private agent myAgent;
     private JTextField xValueField;
-    private JTextField xVal
+    private JTextField xValueField2;
+    private JTextFi
