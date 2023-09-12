@@ -28,4 +28,6 @@ public class gui extends JFrame {
     private agent myAgent;
     private JTextField xValueField;
     private JTextField xValueField2;
-    private JTextFi
+    private JTextField traf;
+    gui(agent a){
+  
