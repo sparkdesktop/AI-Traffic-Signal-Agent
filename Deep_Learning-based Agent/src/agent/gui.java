@@ -33,3 +33,5 @@ public class gui extends JFrame {
         super(a.getLocalName());
         
         myAgent =a;
+        
+        JPanel p 
