@@ -34,4 +34,7 @@ public class gui extends JFrame {
         
         myAgent =a;
         
-        JPanel p 
+        JPanel p = new JPanel();
+        
+
+       
