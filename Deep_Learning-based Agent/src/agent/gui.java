@@ -37,4 +37,4 @@ public class gui extends JFrame {
         JPanel p = new JPanel();
         
 
-       
+        getContentPane().add(p, BorderL
