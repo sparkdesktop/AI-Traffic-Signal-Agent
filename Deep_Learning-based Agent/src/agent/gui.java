@@ -37,4 +37,6 @@ public class gui extends JFrame {
         JPanel p = new JPanel();
         
 
-        getContentPane().add(p, BorderL
+        getContentPane().add(p, BorderLayout.CENTER);
+
+        JButton a
