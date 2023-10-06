@@ -40,4 +40,4 @@ public class gui extends JFrame {
         getContentPane().add(p, BorderLayout.CENTER);
 
         JButton addButton = new JButton("Digitos");
- 
+        addButton.addAct
