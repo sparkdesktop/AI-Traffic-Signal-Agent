@@ -41,4 +41,5 @@ public class gui extends JFrame {
 
         JButton addButton = new JButton("Digitos");
         addButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e
+            public void actionPerformed(ActionEvent ev) {
+                try {
