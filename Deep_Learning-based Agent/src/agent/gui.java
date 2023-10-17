@@ -44,4 +44,7 @@ public class gui extends JFrame {
             public void actionPerformed(ActionEvent ev) {
                 try {
                    
-                    myAgent.Digitos()
+                    myAgent.Digitos();
+                  
+
+       
