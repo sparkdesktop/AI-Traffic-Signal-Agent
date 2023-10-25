@@ -47,4 +47,5 @@ public class gui extends JFrame {
                     myAgent.Digitos();
                   
 
-                } catch (Exceptio
+                } catch (Exception e) {
+                    
