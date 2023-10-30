@@ -48,4 +48,4 @@ public class gui extends JFrame {
                   
 
                 } catch (Exception e) {
-                    JOptionPane.showMessageDi
+                    JOptionPane.showMessageDialog(gui.this, "valor i
