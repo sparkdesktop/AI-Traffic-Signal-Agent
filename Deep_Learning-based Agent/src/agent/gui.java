@@ -52,4 +52,5 @@ public class gui extends JFrame {
                 }
             }
         }); 
-            p = new J
+            p = new JPanel();
+	    p.add(addButton
