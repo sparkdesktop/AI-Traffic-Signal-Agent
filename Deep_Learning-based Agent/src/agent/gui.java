@@ -63,4 +63,5 @@ public class gui extends JFrame {
        
         
         
-             JButton Button = new JButton("Trafic Sina
+             JButton Button = new JButton("Trafic Sinal");
+        Button.addActionL
