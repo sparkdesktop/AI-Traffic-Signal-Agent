@@ -65,4 +65,5 @@ public class gui extends JFrame {
         
              JButton Button = new JButton("Trafic Sinal");
         Button.addActionListener(new ActionListener() {
-            public void actionPe
+            public void actionPerformed(ActionEvent ev) {
+      
