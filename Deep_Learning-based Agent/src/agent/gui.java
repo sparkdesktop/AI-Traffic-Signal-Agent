@@ -69,4 +69,4 @@ public class gui extends JFrame {
                 try {
                     
                     
-       
+                    myAgent.signalTr
