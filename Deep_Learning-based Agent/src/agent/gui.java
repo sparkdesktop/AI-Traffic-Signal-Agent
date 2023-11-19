@@ -69,4 +69,6 @@ public class gui extends JFrame {
                 try {
                     
                     
-                    myAgent.signalTr
+                    myAgent.signalTrafic();
+
+             
