@@ -71,4 +71,5 @@ public class gui extends JFrame {
                     
                     myAgent.signalTrafic();
 
-             
+                } catch (Exception e) {
+        
