@@ -72,4 +72,5 @@ public class gui extends JFrame {
                     myAgent.signalTrafic();
 
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(gui.this, "valor invalido"+e.getMessage(), "ERRO
+                    JOptionPane.showMessageDialog(gui.this, "valor invalido"+e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+   
