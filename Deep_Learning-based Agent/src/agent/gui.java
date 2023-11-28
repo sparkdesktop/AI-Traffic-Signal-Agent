@@ -77,4 +77,5 @@ public class gui extends JFrame {
             }
         }); 
         
-	   
+	    p.add(Button);
+	    getContentPan
