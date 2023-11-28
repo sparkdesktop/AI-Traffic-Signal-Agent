@@ -75,3 +75,6 @@ public class gui extends JFrame {
                     JOptionPane.showMessageDialog(gui.this, "valor invalido"+e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
+        }); 
+        
+	   
