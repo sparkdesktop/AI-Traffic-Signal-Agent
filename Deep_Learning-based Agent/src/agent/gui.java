@@ -78,4 +78,4 @@ public class gui extends JFrame {
         }); 
         
 	    p.add(Button);
-	    getContentPan
+	    getContentPane().add(p, BorderLayout.SOUT
