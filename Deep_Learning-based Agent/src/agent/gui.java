@@ -81,4 +81,6 @@ public class gui extends JFrame {
 	    getContentPane().add(p, BorderLayout.SOUTH);
              setResizable(false);
     }
-    public void showGui
+    public void showGui() {
+		pack();
+		Dimension scr
