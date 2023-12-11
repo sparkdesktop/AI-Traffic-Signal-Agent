@@ -79,4 +79,6 @@ public class gui extends JFrame {
         
 	    p.add(Button);
 	    getContentPane().add(p, BorderLayout.SOUTH);
-             setResizable(false)
+             setResizable(false);
+    }
+    public void showGui
