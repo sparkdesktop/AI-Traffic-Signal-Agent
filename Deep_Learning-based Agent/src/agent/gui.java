@@ -83,4 +83,4 @@ public class gui extends JFrame {
     }
     public void showGui() {
 		pack();
-		Dimension scr
+		Dimension screenSize = Toolkit.
