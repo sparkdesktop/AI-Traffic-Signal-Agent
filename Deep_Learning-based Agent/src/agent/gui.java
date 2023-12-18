@@ -85,4 +85,4 @@ public class gui extends JFrame {
 		pack();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int centerX = (int)screenSize.getWidth() / 2;
-		int centerY = (int
+		int centerY = (int)screenSize.getHeight() / 2;
