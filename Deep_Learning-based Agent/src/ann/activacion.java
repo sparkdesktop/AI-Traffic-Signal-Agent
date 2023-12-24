@@ -9,4 +9,5 @@ package ann;
  *
  * @author celes
  */
-publ
+public class activacion {
+    dou
