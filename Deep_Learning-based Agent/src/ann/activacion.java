@@ -13,4 +13,5 @@ public class activacion {
     double activa; 
     double []entradas; 
     double []pesos;  
-    double errorNodo;//e
+    double errorNodo;//error de cada nodo
+    static 
