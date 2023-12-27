@@ -12,4 +12,5 @@ package ann;
 public class activacion {
     double activa; 
     double []entradas; 
-    double []pesos; 
+    double []pesos;  
+    double errorNodo;//e
