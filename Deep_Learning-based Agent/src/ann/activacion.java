@@ -10,4 +10,5 @@ package ann;
  * @author celes
  */
 public class activacion {
-    dou
+    double activa; 
+    double []entradas; 
