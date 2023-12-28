@@ -16,4 +16,5 @@ public class activacion {
     double errorNodo;//error de cada nodo
     static sigmoide sigmode;
     
-    //i
+    //inicializamos
+    public activacio
