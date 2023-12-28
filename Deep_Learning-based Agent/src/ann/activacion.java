@@ -14,4 +14,6 @@ public class activacion {
     double []entradas; 
     double []pesos;  
     double errorNodo;//error de cada nodo
-    static 
+    static sigmoide sigmode;
+    
+    //i
