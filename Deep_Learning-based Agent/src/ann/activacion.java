@@ -17,4 +17,5 @@ public class activacion {
     static sigmoide sigmode;
     
     //inicializamos
-    public activacio
+    public activacion(int nentradas){
+        pes
