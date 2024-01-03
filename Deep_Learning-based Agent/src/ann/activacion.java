@@ -18,4 +18,4 @@ public class activacion {
     
     //inicializamos
     public activacion(int nentradas){
-        pes
+        pesos= new double[nentr
