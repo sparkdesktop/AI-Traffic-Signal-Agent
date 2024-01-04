@@ -20,3 +20,4 @@ public class activacion {
     public activacion(int nentradas){
         pesos= new double[nentradas];
         entradas= new double[nentradas];
+        sigmode= ne
