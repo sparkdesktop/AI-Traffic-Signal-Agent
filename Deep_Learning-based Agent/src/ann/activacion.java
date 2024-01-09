@@ -21,4 +21,8 @@ public class activacion {
         pesos= new double[nentradas];
         entradas= new double[nentradas];
         sigmode= new sigmoide();
-        errorNodo
+        errorNodo=0;
+        
+    }
+    
+    pub
