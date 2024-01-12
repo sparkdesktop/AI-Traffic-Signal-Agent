@@ -26,4 +26,5 @@ public class activacion {
     }
     
     public void activar(){
-  
+        double suma=0;
+   
