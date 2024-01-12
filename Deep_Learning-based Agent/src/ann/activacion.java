@@ -25,4 +25,5 @@ public class activacion {
         
     }
     
-    pub
+    public void activar(){
+  
