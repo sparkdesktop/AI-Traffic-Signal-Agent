@@ -27,4 +27,4 @@ public class activacion {
     
     public void activar(){
         double suma=0;
-   
+        for(int i=0;
