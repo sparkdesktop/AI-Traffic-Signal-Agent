@@ -28,4 +28,5 @@ public class activacion {
     public void activar(){
         double suma=0;
         for(int i=0;i<entradas.length;i++){
-      
+            suma+=entradas[i]*pesos[i];
+    
