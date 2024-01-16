@@ -34,4 +34,5 @@ public class activacion {
     }
 
     
-    pub
+    public void verEntradas(){
+       
