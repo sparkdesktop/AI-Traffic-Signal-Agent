@@ -30,4 +30,8 @@ public class activacion {
         for(int i=0;i<entradas.length;i++){
             suma+=entradas[i]*pesos[i];
         }
-        activa=sigmode.fu
+        activa=sigmode.funcion(suma);
+    }
+
+    
+    pub
