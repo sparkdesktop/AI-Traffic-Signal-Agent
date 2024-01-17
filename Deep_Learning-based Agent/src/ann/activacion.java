@@ -35,4 +35,4 @@ public class activacion {
 
     
     public void verEntradas(){
-       
+        System.out.println("-------------E
