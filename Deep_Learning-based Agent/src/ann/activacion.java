@@ -36,4 +36,4 @@ public class activacion {
     
     public void verEntradas(){
         System.out.println("-------------ENTRADAS-------------");
-    
+        for(int i=0;i<entrada
