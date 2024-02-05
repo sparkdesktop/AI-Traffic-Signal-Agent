@@ -38,4 +38,7 @@ public class activacion {
         System.out.println("-------------ENTRADAS-------------");
         for(int i=0;i<entradas.length;i++){
             System.out.println(entradas[i]);
- 
+        }
+    }
+    
+    pu
