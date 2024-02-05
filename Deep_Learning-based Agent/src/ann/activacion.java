@@ -41,4 +41,5 @@ public class activacion {
         }
     }
     
-    pu
+    public void verPesos(){
+ 
