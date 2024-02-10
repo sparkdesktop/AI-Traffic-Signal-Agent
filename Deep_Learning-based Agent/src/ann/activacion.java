@@ -42,4 +42,4 @@ public class activacion {
     }
     
     public void verPesos(){
-        System.out.println("---------
+        System.out.println("-------------PESOS--------------
