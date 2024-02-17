@@ -50,3 +50,6 @@ public class activacion {
      
     public double getActivacion(){
         return activa;
+    } 
+    
+    public void ve
