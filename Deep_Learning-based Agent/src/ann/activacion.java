@@ -52,4 +52,5 @@ public class activacion {
         return activa;
     } 
     
-    public void ve
+    public void verActivacion(){
+         Sys
