@@ -48,4 +48,4 @@ public class activacion {
         }
     }
      
-   
+    public double getActivacion
