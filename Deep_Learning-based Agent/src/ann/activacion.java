@@ -48,4 +48,5 @@ public class activacion {
         }
     }
      
-    public double getActivacion
+    public double getActivacion(){
+        return activa;
