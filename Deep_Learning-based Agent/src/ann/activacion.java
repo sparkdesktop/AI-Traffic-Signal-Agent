@@ -53,4 +53,4 @@ public class activacion {
     } 
     
     public void verActivacion(){
-         Sys
+         System.out.println("-----------
