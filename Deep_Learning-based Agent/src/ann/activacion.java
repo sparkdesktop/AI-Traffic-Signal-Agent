@@ -53,4 +53,5 @@ public class activacion {
     } 
     
     public void verActivacion(){
-         System.out.println("-------------ACTIVACION----------"
+         System.out.println("-------------ACTIVACION----------");
+         System.out
