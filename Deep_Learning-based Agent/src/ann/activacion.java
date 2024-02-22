@@ -57,4 +57,5 @@ public class activacion {
          System.out.println(activa);
         
     }
-   
+    
+     public double getErrorNod
