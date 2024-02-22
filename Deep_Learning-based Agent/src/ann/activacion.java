@@ -58,4 +58,5 @@ public class activacion {
         
     }
     
-     public double getErrorNod
+     public double getErrorNodo() {
+        return errorNo
