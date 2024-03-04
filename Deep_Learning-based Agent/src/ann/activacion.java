@@ -62,4 +62,6 @@ public class activacion {
         return errorNodo;
     }
 
-    public void setErrorNodo(double er
+    public void setErrorNodo(double error) {
+        errorNodo = error;
+    }
