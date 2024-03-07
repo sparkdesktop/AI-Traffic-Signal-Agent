@@ -48,3 +48,33 @@ public class calculos {
             }
            // neuronO[o].verPesos();
         }
+        
+        //capa h
+         for(int j=0;j<nodosCapaH;j++){
+            for(int i=0;i<entCapaH;i++){
+               neuronH[j].pesos[i]=Math.random();
+            }
+           // neuronO[j].verPesos();
+        }
+    }
+    
+    public void entradasH(double capaI[]){
+        //inicaliza entradas nodosh
+        for(int j=0;j<nodosCapaH;j++){
+            for(int i=0;i<capaI.length;i++){
+               neuronH[j].entradas[i]=capaI[i];
+            }
+         //   neuronH[j].verEntradas();
+        }
+    }
+    
+    public void activacionO(){
+        for(int j=0;j<nodosCapaO;j++){
+            neuronO[j].activar();
+        }
+    }
+    public void activacionH(){
+        for(int j=0;j<nodosCapaH;j++){
+            neuronH[j].activar();
+        }
+        
