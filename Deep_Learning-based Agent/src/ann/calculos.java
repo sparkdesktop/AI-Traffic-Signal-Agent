@@ -100,3 +100,29 @@ public class calculos {
               neuronO[i].setErrorNodo(error);
         }
         
+    }
+    
+    public void pesos_ho(){
+        for(int i=0;i<nodosCapaO;i++){
+            for(int p=0;p<entCapaO;p++){
+            neuronO[i].pesos[p]+=(n*neuronO[i].getErrorNodo()*neuronO[i].entradas[p]);//revisar
+        }
+        }
+    }
+    
+    public void errorCapaH(){
+        double error, suma;
+        
+        for(int i=0;i<nodosCapaH;i++){
+            suma=0;
+            for(int p=0;p<nodosCapaO;p++){
+              suma+=(neuronO[p].getErrorNodo()*neuronO[p].pesos[i]);
+             }
+            
+           error=(neuronH[i].getActivacion()*(1-neuronH[i].getActivacion())*suma);
+           neuronH[i].setErrorNodo(error);
+        }  
+    }
+    
+    public void pesosIH(){
+        for(int i=0;i<nodosCapaH;i++){
