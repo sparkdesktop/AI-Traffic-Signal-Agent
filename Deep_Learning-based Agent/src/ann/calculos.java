@@ -78,3 +78,25 @@ public class calculos {
             neuronH[j].activar();
         }
         
+    } 
+    
+     public void entradasO(){
+        //inicaliza entradas nodosh
+        int i;
+        for(int j=0;j<nodosCapaO;j++){
+            for( i=0;i<nodosCapaH;i++){
+               neuronO[j].entradas[i]=neuronH[i].getActivacion();
+            }
+            neuronO[j].entradas[i]=balance; //-1 umbral balance
+        
+         //   neuronO[j].verEntradas();
+        }
+    }
+     
+    public void errorCapaO(double aprender [][],int epoca){
+        double error=0;
+        for( int i=0;i<nodosCapaO;i++){
+              error=(aprender[i][epoca]-neuronO[i].getActivacion())*neuronO[i].getActivacion()*(1-neuronO[i].getActivacion());
+              neuronO[i].setErrorNodo(error);
+        }
+        
