@@ -126,3 +126,33 @@ public class calculos {
     
     public void pesosIH(){
         for(int i=0;i<nodosCapaH;i++){
+            for(int p=0;p<entCapaH;p++){
+              neuronH[i].pesos[p]+=n*neuronH[i].getErrorNodo()*neuronH[i].entradas[p];
+            }
+           // neuronH[i].verPesos();
+        }
+    }
+    
+    public double forward(int neutron) { 
+		if(neuronO[neutron].getActivacion()>= 0.5) 
+			return  1; 
+		else 
+			return  0;
+		
+	} 
+    
+    public void verPesos_IH(){
+        System.out.println("-------------actualiza pesos_IH----------------------");
+        for(int j=0;j <nodosCapaH;j++){
+            neuronH[j].verPesos();
+        }
+    }
+    
+    public void verPesos_HO(){
+        System.out.println("-------------actualiza pesos_HO----------------------");
+        for(int j=0;j <nodosCapaO;j++){
+            neuronO[j].verPesos();
+        }
+    }
+    
+}
