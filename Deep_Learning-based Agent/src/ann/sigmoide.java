@@ -9,4 +9,5 @@ package ann;
  *
  * @author celes
  */
-pu
+public class sigmoide {
+    doub
