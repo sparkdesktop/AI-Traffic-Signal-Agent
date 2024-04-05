@@ -10,4 +10,5 @@ package ann;
  * @author celes
  */
 public class sigmoide {
-    doub
+    double e;
+    public  sigm
