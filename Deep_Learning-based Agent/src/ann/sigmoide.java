@@ -15,4 +15,6 @@ public class sigmoide {
 	e = Math.E; 	
     }
     public double funcion(double a){
-	return (1/(1+M
+	return (1/(1+Math.pow(e, -a))); 
+    }
+}
