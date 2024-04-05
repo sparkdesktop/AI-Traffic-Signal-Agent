@@ -11,4 +11,7 @@ package ann;
  */
 public class sigmoide {
     double e;
-    public  sigm
+    public  sigmoide(){
+	e = Math.E; 	
+    }
+    p
