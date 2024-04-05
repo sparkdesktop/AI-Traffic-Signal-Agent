@@ -14,4 +14,4 @@ public class sigmoide {
     public  sigmoide(){
 	e = Math.E; 	
     }
-    p
+    public double funcion(double
