@@ -42,3 +42,27 @@ public class Digit {
                 
             }
             System.out.print(" Aprender ");
+            for (int j = 0; j <nodoso; j++) {
+                 System.out.print(""+Math.round(m.getApender()[j][iteracion])+" ");
+                
+            }
+            
+            System.out.print(" Salida ");
+            redNeuronal.entradasH(m.getCapaI()[iteracion]);
+            redNeuronal.activacionH();
+            redNeuronal.entradasO();
+            redNeuronal.activacionO();
+            
+            redNeuronal.errorCapaO(m.getApender(), iteracion);
+            for (int j = 0; j <nodoso; j++) {
+                 System.out.print(""+Math.round(redNeuronal.forward(j))+"  ");
+                
+            }
+            
+            //conversion decimal a binario
+            double decimal=0;
+            
+            int t=0;
+            for (int j = nodoso-1; j >= 0; j--) {
+                decimal+=redNeuronal.forward(j)*Math.pow(2,t);
+                t++;
