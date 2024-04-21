@@ -28,3 +28,31 @@ public class mainn {
     this.entraCapaH=entraCapaH ;
     }
    
+    public void main() {
+        redNeuronal.crearRed();
+        redNeuronal.inicioPesos();
+        
+        int numeroIter=70000; //n
+        int i=0;
+        int iteracion;//epoca
+        double error;
+        int numeroactualItera=0;//k
+        boolean noigual=false;
+        while(i<m.getCapaI().length && numeroactualItera < numeroIter ){
+             iteracion=i;
+            if(i==0){
+                 System.out.println("---------------------------------------------------Iteracion "+ numeroactualItera+" ------------------------");
+            }
+             
+            for (int j = 0; j < 7; j++) {
+                 System.out.print(""+Math.round(m.getCapaI()[iteracion][j])+" ");
+                
+            }
+            System.out.print(" Aprender ");
+            for (int j = 0; j <nodoso; j++) {
+                 System.out.print(""+Math.round(m.getApender()[j][iteracion])+" ");
+                
+            }
+            
+            System.out.print(" Salida ");
+            redNeuronal.entradasH(m.getCapaI()[iteracion]);
