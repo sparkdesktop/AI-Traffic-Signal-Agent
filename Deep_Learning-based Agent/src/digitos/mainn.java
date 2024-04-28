@@ -97,3 +97,8 @@ public class mainn {
            // System.out.println("**********************  "+i+" ***************** "+numeroactualItera+" ***************");
             
         }
+        redNeuronal.verPesos_IH();
+        redNeuronal.verPesos_HO();
+                
+    }
+}
